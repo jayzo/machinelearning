@@ -12,11 +12,17 @@ dataset = np.loadtxt(raw_data, delimiter=",")
 # separate the data from the target attributes
 X = dataset[:,0:8]
 y = dataset[:,8]
+#print(dataset)
 model = joblib.load('train1.pkl')
-print(model)
+#print(model)
 # make predictions
 expected = y
 predicted = model.predict(X)
 # # summarize the fit of the model
+print("==============")
 print(metrics.classification_report(expected, predicted))
+print("==============")
 print(metrics.confusion_matrix(expected, predicted))
+#print(expected)
+#print("==============")
+#print(predicted)
